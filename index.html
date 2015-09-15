@@ -82,7 +82,7 @@
         $item.appendTo("#repos");
       }
 
-      function addRepos(repos, page, org) {
+      function addRepos(org, repos, page) {
         repos = repos || [];
         page = page || 1;
 
@@ -99,7 +99,7 @@
         $.getJSON(uri, function (result) {
           if (result.data && result.data.length > 0) {
             repos = repos.concat(result.data);
-            addRepos(repos, page + 1, org);
+            addRepos(org, repos, page + 1);
           }
           else {
             $(function () {
@@ -150,17 +150,19 @@
       addRepos('DynamoDS');
 
       //get total number of Autodesk members
-      function getNumMembers(page, numMembers) {
+      function getNumMembers(org, page, numMembers) {
         var page = page || 1;
         var numMembers = numMembers || 0;
-        var membersUri = "https://api.github.com/orgs/autodesk/members?callback=?"
+        var membersUri = "https://api.github.com/orgs/"
+	  + org
+	  + "/members?callback=?"
           + "&per_page=100"
           + "&page="+page;
 
         $.getJSON(membersUri, function (result) {
           if (result.data && result.data.length > 0) {
             numMembers += result.data.length;
-            getNumMembers(page+1, numMembers);
+            getNumMembers(org, page+1, numMembers);
           } else {
             $(function () {
               $("#num-members").text(numMembers);
@@ -168,7 +170,7 @@
           }
         });
       }
-      getNumMembers();
+      getNumMembers('DynamoDS');
 
     })(jQuery);
     </script>
@@ -178,22 +180,22 @@
       <div id="main" class="grid-1">
         <div id="logo"><h1>Autodesk Open Source</h1></div>
         <h1>Autodesk uses and contributes to open source software.</h1>
-	<p>This page still Under Construction</p>
+	<p>This page still <b>UNDER CONSTRUCTION</b></p>
       </div>
 
       <div class="grid grid-3">
         <div id="statistics" class="grid-1 alpha header">
           <h1>Statistics</h1>
           <p>
-            <a href="https://github.com/autodesk/repositories"><span id="num-repos"><img src="assets/spinner.gif" /></span> public repos</a>
+            <span id="num-repos"><img src="assets/spinner.gif" /></span> public repos
             <br>
-            <a href="https://github.com/autodesk?tab=members"><span id="num-members"><img src="assets/spinner.gif" /></span> members</a>
+            <span id="num-members"><img src="assets/spinner.gif" /></span> members
           </p>
           <p class="email"><a href="mailto:opensource@autodesk.com">opensource@autodesk.com</a></p>
         </div>
 
         <div id="recently-updated" class="grid-2 omega header">
-          <h1>Recently updated <a href="https://github.com/autodesk/repositories">View All on GitHub</a></h1>
+          <h1>Recently updated repos</h1>
           <ol id="recently-updated-repos"></ol>
         </div>
       </div>
