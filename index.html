@@ -146,7 +146,7 @@
       addRepos('autodesk-cloud');
       addRepos('DynamoDS');
 
-      // Get total number of Autodesk members across organizations by calling this with different orgs
+      // Get total number of public members for each organization passed in
 
       function getNumMembers(org, page, numMembers) {
         var page = page || 1;
@@ -162,20 +162,20 @@
             numMembers += result.data.length;
             getNumMembers(org, page+1, numMembers);
           } else {
-           //$(function () {
-           //   $("#num-members").text(numMembers);
-           //});
-	   return 0;
+	   return numMembers;
           }
         });
       }
-      getNumMembers('Autodesk');
-      getNumMembers('autodesk-cloud');
-      getNumMembers('DynamoDS');
+
+      // Call this for each organization associated with Autodesk OSS
+ 
+      var numMembersSpan = getNumMembers('Autodesk');
+      numMembersSpan += getNumMembers('autodesk-cloud');
+      numMembersSpan += getNumMembers('DynamoDS');
 
       // Place total # of members from successive calls to getNumMembers in the right span var
 
-      $("#num-members").text(numMembers);
+      $("#num-members").text(numMembersSpan);
 
     })(jQuery);
     </script>
