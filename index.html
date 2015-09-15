@@ -169,7 +169,9 @@
 
       // Call this for each organization associated with Autodesk OSS
  
-      var numMembersSpan = getNumMembers('Autodesk');
+      var numMembersSpan = 0;
+
+      numMembersSpan += getNumMembers('Autodesk');
       //numMembersSpan += getNumMembers('autodesk-cloud');
       //numMembersSpan += getNumMembers('DynamoDS');
 
