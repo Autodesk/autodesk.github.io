@@ -146,7 +146,8 @@
       addRepos('autodesk-cloud');
       addRepos('DynamoDS');
 
-      //get total number of Autodesk members
+      // Get total number of Autodesk members across organizations by calling this with different orgs
+
       function getNumMembers(org, page, numMembers) {
         var page = page || 1;
         var numMembers = numMembers || 0;
@@ -160,16 +161,23 @@
           if (result.data && result.data.length > 0) {
             numMembers += result.data.length;
             getNumMembers(org, page+1, numMembers);
-          } else {
-            $(function () {
-              $("#num-members").text(numMembers);
-            });
-          }
+          } 
+//else {
+//           $(function () {
+//              $("#num-members").text(numMembers);
+//            });
+//          }
         });
       }
       getNumMembers('Autodesk');
       getNumMembers('autodesk-cloud');
       getNumMembers('DynamoDS');
+
+      // Place total # of members from successive calls to getNumMembers in the right span var
+
+      $(function () {
+         $("#num-members").text(numMembers);
+      });
 
     })(jQuery);
     </script>
@@ -178,7 +186,8 @@
     <div id="wrapper" class="grid clearfix">
       <div id="main" class="grid-1">
         <div id="logo"><h1>Autodesk Open Source</h1></div>
-        <h1>Autodesk uses and contributes to open source software.</h1>
+        <h1>Autodesk uses and contributes to open source software through various projects.</h1>
+        <h1>The repositories listed here represent various GitHub organizations that house Autodesk open source code.</h1>
 	<p>This page <strong>UNDER CONSTRUCTION</strong></p>
       </div>
 
@@ -188,7 +197,7 @@
           <p>
             <span id="num-repos"><img src="assets/spinner.gif" /></span> public repos
             <br>
-            <span id="num-members"><img src="assets/spinner.gif" /></span> members
+            <span id="num-members"><img src="assets/spinner.gif" /></span> public members
           </p>
           <p class="email"><a href="mailto:opensource@autodesk.com">opensource@autodesk.com</a></p>
         </div>
