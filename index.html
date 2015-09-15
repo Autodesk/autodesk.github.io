@@ -82,7 +82,7 @@
         $item.appendTo("#repos");
       }
 
-      function addRepos(repos, page) {
+      function addRepos(repos, page, org) {
         repos = repos || [];
         page = page || 1;
 
@@ -90,14 +90,16 @@
         //        + "&per_page=100"
         //        + "&page="+page;
 
-        var uri = "https://api.github.com/orgs/autodesk-cloud/repos?callback=?"
+        var uri = "https://api.github.com/orgs/"
+		  + org
+                  + "/repos?callback=?"
                   + "&per_page=100"
                   + "&page="+page;
 
         $.getJSON(uri, function (result) {
           if (result.data && result.data.length > 0) {
             repos = repos.concat(result.data);
-            addRepos(repos, page + 1);
+            addRepos(repos, page + 1, org);
           }
           else {
             $(function () {
@@ -144,7 +146,8 @@
           }
         });
       }
-      addRepos();
+      //addRepos('autodesk-cloud');
+      addRepos('DynamoDS');
 
       //get total number of Autodesk members
       function getNumMembers(page, numMembers) {
