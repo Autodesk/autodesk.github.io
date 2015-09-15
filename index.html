@@ -161,12 +161,12 @@
           if (result.data && result.data.length > 0) {
             numMembers += result.data.length;
             getNumMembers(org, page+1, numMembers);
-          } 
-//else {
-//           $(function () {
-//              $("#num-members").text(numMembers);
-//            });
-//          }
+          } else {
+	    return;
+           //$(function () {
+           //   $("#num-members").text(numMembers);
+           // });
+          }
         });
       }
       getNumMembers('Autodesk');
@@ -187,7 +187,6 @@
       <div id="main" class="grid-1">
         <div id="logo"><h1>Autodesk Open Source</h1></div>
         <h1>Autodesk uses and contributes to open source software through various projects.</h1>
-        <h1>The repositories listed here represent various GitHub organizations that house Autodesk open source code.</h1>
 	<p>This page <strong>UNDER CONSTRUCTION</strong></p>
       </div>
 
