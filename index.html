@@ -162,16 +162,18 @@
             numMembers += result.data.length;
             getNumMembers(org, page+1, numMembers);
           } else {
-	   return numMembers;
+	   return;
           }
         });
+
+	return numMembers;
       }
 
       // Call this for each organization associated with Autodesk OSS
  
       var numMembersSpan = 0;
 
-      //numMembersSpan += getNumMembers('Autodesk');
+      numMembersSpan += getNumMembers('Autodesk');
       //numMembersSpan += getNumMembers('autodesk-cloud');
       //numMembersSpan += getNumMembers('DynamoDS');
 
