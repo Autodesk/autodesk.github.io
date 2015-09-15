@@ -175,7 +175,9 @@
 
       // Place total # of members from successive calls to getNumMembers in the right span var
 
-      $("#num-members").text(numMembersSpan);
+      $(function () {
+          $("#num-members").text(numMembersSpan);
+      });
 
     })(jQuery);
     </script>
