@@ -136,13 +136,13 @@
               });
 
               $.each(repos.slice(0, 3), function (i, repo) {
-                //addRecentlyUpdatedRepo(repo);
+                addRecentlyUpdatedRepo(repo);
               });
             });
           }
         });
       }
-      //addRepos('Autodesk');
+      addRepos('Autodesk');
       addRepos('autodesk-cloud');
       addRepos('DynamoDS');
 
@@ -151,10 +151,10 @@
         var page = page || 1;
         var numMembers = numMembers || 0;
         var membersUri = "https://api.github.com/orgs/"
-	  + org
-	  + "/members?callback=?"
-          + "&per_page=100"
-          + "&page="+page;
+	  		 + org
+	  		 + "/members?callback=?"
+          		 + "&per_page=100"
+          		 + "&page="+page;
 
         $.getJSON(membersUri, function (result) {
           if (result.data && result.data.length > 0) {
@@ -167,7 +167,7 @@
           }
         });
       }
-      //getNumMembers('Autodesk');
+      getNumMembers('Autodesk');
       getNumMembers('autodesk-cloud');
       getNumMembers('DynamoDS');
 
@@ -195,7 +195,7 @@
 
         <div id="recently-updated" class="grid-2 omega header">
           <h1>Recently updated repos</h1>
-          <ol id="recently-updated-repos"></ol>
+          <!--<ol id="recently-updated-repos"></ol>-->
         </div>
       </div>
 
