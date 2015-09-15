@@ -86,10 +86,6 @@
         repos = repos || [];
         page = page || 1;
 
-        //var uri = "https://api.github.com/orgs/autodesk/repos?callback=?"
-        //        + "&per_page=100"
-        //        + "&page="+page;
-
         var uri = "https://api.github.com/orgs/"
 		  + org
                   + "/repos?callback=?"
@@ -140,12 +136,13 @@
               });
 
               $.each(repos.slice(0, 3), function (i, repo) {
-                addRecentlyUpdatedRepo(repo);
+                //addRecentlyUpdatedRepo(repo);
               });
             });
           }
         });
       }
+      addRepos('Autodesk');
       addRepos('autodesk-cloud');
       addRepos('DynamoDS');
 
@@ -170,6 +167,7 @@
           }
         });
       }
+      getNumMembers('Autodesk');
       getNumMembers('autodesk-cloud');
       getNumMembers('DynamoDS');
 
@@ -181,7 +179,7 @@
       <div id="main" class="grid-1">
         <div id="logo"><h1>Autodesk Open Source</h1></div>
         <h1>Autodesk uses and contributes to open source software.</h1>
-	<p>This page still <b>UNDER CONSTRUCTION</b></p>
+	<p>This page still <strong>UNDER CONSTRUCTION</strong></p>
       </div>
 
       <div class="grid grid-3">
