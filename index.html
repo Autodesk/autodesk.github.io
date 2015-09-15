@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="assets/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/grid.css">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+
 <!--    <link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon"> -->
 
 <!--
@@ -31,7 +32,7 @@
 
       // Put custom repo URL's in this object, keyed by repo name.
       var repoUrls = {
-        "Dynamo": "https://github.com/DynamoDS/Dynamo/",
+        "Dynamo": "https://github.com/dynamods/dynamo/",
 	"Ochopod": "https://github.com/autodesk-cloud/ochopod/"
       };
 
@@ -85,9 +86,13 @@
         repos = repos || [];
         page = page || 1;
 
-        var uri = "https://api.github.com/orgs/autodesk/repos?callback=?"
-                + "&per_page=100"
-                + "&page="+page;
+        //var uri = "https://api.github.com/orgs/autodesk/repos?callback=?"
+        //        + "&per_page=100"
+        //        + "&page="+page;
+
+        var uri = "https://api.github.com/orgs/autodesk-cloud/repos?callback=?"
+                  + "&per_page=100"
+                  + "&page="+page;
 
         $.getJSON(uri, function (result) {
           if (result.data && result.data.length > 0) {
@@ -162,93 +167,6 @@
       }
       getNumMembers();
 
-      function randomItem(array) {
-        return array[Math.floor(Math.random() * array.length)];
-      }
-
-      var $flyzone;
-
-      function flyzone() {
-        if (!$flyzone) {
-          $flyzone = $("<div>").attr("id", "flyzone").prependTo(document.body);
-        }
-
-        return $flyzone;
-      }
-
-      var sizes = ["smaller", "small", "medium", "large", "fat"];
-
-      var sizeDimensions = {
-        "smaller": 50,
-        "small": 80,
-        "medium": 130,
-        "large": 200,
-        "fat": 300
-      };
-
-      function randomOpacity(threshold) {
-        var opacity = Math.random();
-
-        while (opacity < threshold) {
-          opacity = Math.random();
-        }
-
-        return opacity;
-      }
-
-      function makeLarry(sizeName, speed) {
-        var size = sizeDimensions[sizeName];
-        var top = Math.floor((flyzone().height() - size) * Math.random());
-
-        var $img = $("<img>")
-          .addClass("larry size-" + sizeName)
-          .attr("src", "assets/larry.png")
-          .attr("width", size)
-          .attr("height", size)
-          .css({
-            position: "absolute",
-            opacity: randomOpacity(0.4),
-            top: top,
-            left: -size
-          });
-
-        $img.prependTo(flyzone());
-
-        var left = flyzone().width() + size;
-
-        $img.animate({left: left}, speed, function () {
-          $img.remove();
-          makeRandomLarry();
-        });
-
-        return $img;
-      }
-
-      function makeRandomLarry() {
-        var size = randomItem(sizes);
-        var speed = Math.floor(Math.random() * 20000) + 15000;
-        return makeLarry(size, speed);
-      }
-
-<!--
-      $(function () {
-        $("#logo").click(function () {
-          makeRandomLarry();
-        });
-      });
--->
-
-      var match = (/\blarry(=(\d+))?\b/i).exec(window.location.search);
-
-      if (match) {
-        var n = parseInt(match[2]) || 20;
-
-        $(function () {
-          for (var i = 0; i < n; ++i) {
-            setTimeout(makeRandomLarry, Math.random() * n * 500);
-          }
-        });
-      }
     })(jQuery);
     </script>
   </head>
@@ -257,6 +175,7 @@
       <div id="main" class="grid-1">
         <div id="logo"><h1>Autodesk Open Source</h1></div>
         <h1>Autodesk uses and contributes to open source software.</h1>
+	<p>This page still Under Construction</p>
       </div>
 
       <div class="grid grid-3">
