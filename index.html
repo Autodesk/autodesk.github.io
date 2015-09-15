@@ -162,10 +162,10 @@
             numMembers += result.data.length;
             getNumMembers(org, page+1, numMembers);
           } else {
-           //$(function () {
-           //   $("#num-members").text(numMembers);
-           //});
-	   return 0;
+           $(function () {
+              $("#num-members").text(numMembers);
+           });
+	   //return 0;
           }
         });
       }
@@ -175,9 +175,9 @@
 
       // Place total # of members from successive calls to getNumMembers in the right span var
 
-      $(function () {
-         $("#num-members").text(numMembers);
-      });
+      //$(function () {
+      //   $("#num-members").text(numMembers);
+      //});
 
     })(jQuery);
     </script>
