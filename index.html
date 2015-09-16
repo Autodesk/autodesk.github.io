@@ -161,25 +161,23 @@
           if (result.data && result.data.length > 0) {
             numMembers += result.data.length;
             getNumMembers(org, numMembers, page+1);
-          }
-        );
+          } else {
+            $(function () {
+              $("#num-members").text(numMembers);
+            });
 
-        return numMembers;
+	    return numMembers;
+	  }
+        );
       }
 
       // Call this for each organization associated with Autodesk OSS
  
       var numMembersSpan = 0;
 
-      numMembersSpan += getNumMembers('Autodesk');
-      //getNumMembers('autodesk-cloud',numMembersSpan);
+      numMembersSpan = getNumMembers('Autodesk');
+      numMembersSpan = getNumMembers('autodesk-cloud',numMembersSpan);
       //getNumMembers('DynamoDS', numMembersSpan);
-
-      // Place total # of members from successive calls to getNumMembers in the right span var
-
-      $(function () {
-          $("#num-members").text(numMembersSpan);
-      });
 
     })(jQuery);
     </script>
