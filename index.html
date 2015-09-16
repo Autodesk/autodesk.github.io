@@ -159,17 +159,17 @@
               $("#num-members").text(numMembers);
             });
 
-	    //return numMembers;
+	    return numMembers;
 	  }
-        );
+        });
       }
 
       // Call this for each organization associated with Autodesk OSS
  
       var numMembersSpan = 0;
 
-      //numMembersSpan = getNumMembers('Autodesk');
-      //numMembersSpan = getNumMembers('autodesk-cloud',numMembersSpan);
+      numMembersSpan = getNumMembers('Autodesk');
+      numMembersSpan = getNumMembers('autodesk-cloud',numMembersSpan);
       //getNumMembers('DynamoDS', numMembersSpan);
 
     })(jQuery);
@@ -189,7 +189,7 @@
           <p>
             <span id="num-repos"><img src="assets/spinner.gif" /></span> public repos
             <br>
-            <!--<span id="num-members"><img src="assets/spinner.gif" /></span> public members-->
+            <span id="num-members"><img src="assets/spinner.gif" /></span> public members
           </p>
           <p class="email"><a href="mailto:opensource@autodesk.com">opensource@autodesk.com</a></p>
         </div>
