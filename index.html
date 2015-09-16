@@ -155,9 +155,9 @@
             numMembers += result.data.length;
             getNumMembers(org, numMembers, page+1);
           } else {
-            $(function () {
-              $("#num-members").text(numMembers);
-            });
+            //$(function () {
+            //  $("#num-members").text(numMembers);
+            //});
 
 	    return numMembers;
 	  }
@@ -171,6 +171,10 @@
       numMembersSpan = getNumMembers('Autodesk');
       numMembersSpan = getNumMembers('autodesk-cloud',numMembersSpan);
       //getNumMembers('DynamoDS', numMembersSpan);
+
+      $(function () {
+          $("#num-members").text(numMembers);
+      });
 
     })(jQuery);
     </script>
