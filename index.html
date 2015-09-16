@@ -157,10 +157,11 @@
           } else {
             $(function () {
               $("#num-members").text(numMembers);
-	      return numMembers;
             });
 	  }
         });
+
+        return numMembers;
       }
 
       // Call this for each organization associated with Autodesk OSS
@@ -169,7 +170,8 @@
 
       numMembersSpan = getNumMembers('Autodesk');
       console.log("numMembersSpan after first getNumMembers call = " + numMembersSpan);
-      var tmp = getNumMembers('autodesk-cloud',numMembersSpan);
+      numMembersSpan = getNumMembers('autodesk-cloud',numMembersSpan);
+      console.log("numMembersSpan after second getNumMembers call = " + numMembersSpan);
       //getNumMembers('DynamoDS', numMembersSpan);
 
     })(jQuery);
