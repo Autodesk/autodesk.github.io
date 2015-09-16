@@ -31,21 +31,14 @@
     (function ($, undefined) {
 
       // Put custom repo URL's in this object, keyed by repo name.
-      var repoUrls = {
-        "Dynamo": "https://github.com/dynamods/dynamo/",
-	"Ochopod": "https://github.com/autodesk-cloud/ochopod/"
-      };
+      var repoUrls = { }; 
 
       function repoUrl(repo) {
         return repoUrls[repo.name] || repo.html_url;
       }
 
       // Put custom repo descriptions in this object, keyed by repo name.
-      var repoDescriptions = {
-        "Dynamo": "Dynamo extends building information modeling (BIM) with the data and logic environment of a graphical algorithm editor.",
-	"Ochopod": "Your friendly orchestration overlay over Mesos, K8S and more! http://autodesk-cloud.github.io/ochopod/"
-
-      };
+      var repoDescriptions = { };
 
       function repoDescription(repo) {
         return repoDescriptions[repo.name] || repo.description;
