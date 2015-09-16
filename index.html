@@ -134,10 +134,13 @@
             });
           }
         });
+
+	return repos;
       }
+
       addRepos('Autodesk');
       addRepos('autodesk-cloud');
-      addRepos('DynamoDS');
+      $("#num-repos").text(addRepos('DynamoDS').length);
 
       // Get total number of public members for each organization passed in
 
