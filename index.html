@@ -161,17 +161,17 @@
           if (result.data && result.data.length > 0) {
             numMembers += result.data.length;
             getNumMembers(org, numMembers, page+1);
-          } else {
-	   return;
           }
-        });
+        );
+
+        return numMembers;
       }
 
       // Call this for each organization associated with Autodesk OSS
  
       var numMembersSpan = 0;
 
-      getNumMembers('Autodesk',numMembersSpan);
+      numMembersSpan += getNumMembers('Autodesk');
       //getNumMembers('autodesk-cloud',numMembersSpan);
       //getNumMembers('DynamoDS', numMembersSpan);
 
