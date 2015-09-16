@@ -150,7 +150,7 @@
           		 + "&per_page=100"
           		 + "&page="+page;
 
-        $.getJSON(membersUri, function (result) {
+        numMembers = $.getJSON(membersUri, function (result) {
           if (result.data && result.data.length > 0) {
             numMembers += result.data.length;
             getNumMembers(org, numMembers, page+1);
@@ -158,6 +158,7 @@
             $(function () {
               $("#num-members").text(numMembers);
             });
+            return numMembers;
 	  }
         });
 
