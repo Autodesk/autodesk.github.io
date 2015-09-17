@@ -136,6 +136,8 @@
         });
       }
 
+      // Call this for each organization associated with Autodesk OSS
+
       addRepos('Autodesk');
       addRepos('autodesk-cloud');
       addRepos('DynamoDS');
@@ -157,23 +159,17 @@
             getNumMembers(org, numMembers, page+1);
           } else {
             $(function () {
-              $("#num-members").text(numMembers);
+              $("#num-members").text(Number(($("#num-members").text())) + numMembers);
             });
 	  }
         });
-
-        return $("#num-members").text();
       }
 
       // Call this for each organization associated with Autodesk OSS
  
-      var numMembersSpan = 0;
-
-      numMembersSpan = getNumMembers('Autodesk');
-      console.log("numMembersSpan after first getNumMembers call = " + numMembersSpan);
-      numMembersSpan = getNumMembers('autodesk-cloud',numMembersSpan);
-      console.log("numMembersSpan after second getNumMembers call = " + numMembersSpan);
-      //getNumMembers('DynamoDS', numMembersSpan);
+      getNumMembers('Autodesk');
+      getNumMembers('autodesk-cloud');
+      getNumMembers('DynamoDS');
 
     })(jQuery);
     </script>
