@@ -30,6 +30,10 @@
     <script type="text/javascript">
     (function ($, undefined) {
 
+      // Enable caching
+
+      $.ajaxSetup({ cache: true});
+
       // Put custom repo URL's in this object, keyed by repo name.
       var repoUrls = { }; 
 
