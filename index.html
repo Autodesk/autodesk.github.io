@@ -92,7 +92,7 @@
           }
           else {
             $(function () {
-              //$("#num-repos").text(repos.length);
+              $("#num-repos").text(($("#num-repos").text()) + repos.length);
 
               // Convert pushed_at to Date.
               $.each(repos, function (i, repo) {
@@ -139,10 +139,6 @@
       addRepos('Autodesk');
       addRepos('autodesk-cloud');
       addRepos('DynamoDS');
-      console.log("#repos.length = " + $("#repos").length );
-
-
-      $("#num-repos").text($("#repos").length);
 
       // Get total number of public members for each organization passed in
 
