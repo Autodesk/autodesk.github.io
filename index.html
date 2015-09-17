@@ -92,7 +92,7 @@
           }
           else {
             $(function () {
-              $("#num-repos").text(($("#num-repos").text()) + repos.length);
+              $("#num-repos").text(Number(($("#num-repos").text())) + repos.length);
 
               // Convert pushed_at to Date.
               $.each(repos, function (i, repo) {
