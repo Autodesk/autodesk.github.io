@@ -31,8 +31,10 @@
     (function ($, undefined) {
 
       // Enable caching
-
-      $.ajaxSetup({ cache: true});
+ 
+      $(document).ready(function() {
+        $.ajaxSetup({ cache: true });
+      });
 
       // Put custom repo URL's in this object, keyed by repo name.
       var repoUrls = { }; 
