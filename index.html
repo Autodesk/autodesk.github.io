@@ -147,7 +147,7 @@
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
     	    jsonpCallback: 'processRepo',
-	    //jsonp	 : 'callback',
+	    success	 : 'processRepo',
     	    dataType     : 'jsonp',
     	    data         : { per_page:100, page:page }
         });
