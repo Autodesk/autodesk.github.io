@@ -91,7 +91,17 @@
                   + "&per_page=100"
                   + "&page="+page;
 
-        $.getJSON(uri, function (result) {
+	$.ajax({
+    	    url	         : 'http://api.github.com/orgs/' + org + '/repos',
+    	    cache        : true,
+    	    jsonpCallback: 'processRepo',
+    	    dataType     : 'jsonp',
+    	    data         : { per_page:100, page:page}
+        });
+
+
+       // $.getJSON(uri, function (result) {
+       function processRepo(result) {
           if (result.data && result.data.length > 0) {
             repos = repos.concat(result.data);
             addRepos(org, repos, page + 1);
@@ -139,7 +149,8 @@
               });
             });
           }
-        });
+        //});
+        };
       }
 
       // Call this for each organization associated with Autodesk OSS
