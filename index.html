@@ -100,7 +100,9 @@
       function processRepo(result) {
 
         console.log("Made it into processRepo callback");
+        console.log("result.data = " + result.data);
 
+/*
         if (result.data && result.data.length > 0) {
           repos = repos.concat(result.data);
           addRepos(org, page + 1);
@@ -148,6 +150,7 @@
             });
           });
         }
+*/
       }
 
       // Call this for each organization associated with Autodesk OSS
