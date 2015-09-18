@@ -98,8 +98,7 @@
       }
 
 
-       // $.getJSON(uri, function (result) {
-       function processRepo(result) {
+      function processRepo(result) {
 
        console.log("Made it into processRepo() callback");
           if (result.data && result.data.length > 0) {
@@ -149,7 +148,6 @@
               });
             });
           }
-        //});
         }
 
       // Call this for each organization associated with Autodesk OSS
