@@ -75,7 +75,7 @@
         $item.appendTo("#repos");
       }
 
-      repos = repos || [];
+      var repos = [];
 
       function addRepos(org, page) {
         page = page || 1;
@@ -96,7 +96,6 @@
 
        console.log("Initiated AJAX call");
       }
-
 
       function processRepo(result) {
 
