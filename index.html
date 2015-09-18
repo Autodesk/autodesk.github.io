@@ -75,18 +75,10 @@
         $item.appendTo("#repos");
       }
 
-      var repos = [];
-
-      function addRepos(org, page) {
+      function addRepos(org, repos, page) {
+        repos = repos || [];
         page = page || 1;
-
-        //var uri = "https://api.github.com/orgs/"
-        //		  + org
-        //          + "/repos?callback=?"
-        //          + "&per_page=100"
-        //          + "&page="+page;
-
-        function processRepo() { };
+        var $ = jQuery.noConflict();
 
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
@@ -95,12 +87,9 @@
     	    dataType     : 'jsonp',
     	    data         : { per_page:100, page:page },
 	    success	 : function(result){
-                             console.log('callback success');
-                             console.log(result);
-
 			     if (result.data && result.data.length > 0) {
           		       repos = repos.concat(result.data);
-                               addRepos(org, page + 1);
+                               addRepos(org, repos, page + 1);
         		     }
         		     else {
           		       $(function () {
