@@ -99,9 +99,13 @@
     	    data         : { per_page:100, page:page}
         });
 
+       console.log("Initiated AJAX call");
+
 
        // $.getJSON(uri, function (result) {
        function processRepo(result) {
+
+       console.log("Made it into processRepo() callback");
           if (result.data && result.data.length > 0) {
             repos = repos.concat(result.data);
             addRepos(org, repos, page + 1);
@@ -150,23 +154,23 @@
             });
           }
         //});
-        };
+        }
       }
 
       // Call this for each organization associated with Autodesk OSS
 
       addRepos('Autodesk');
       addRepos('autodesk-cloud');
-      addRepos('DynamoDS');
-      addRepos('spark3dp');
-      addRepos('meshmixer');
-      addRepos('developer-autodesk');
-      addRepos('developer-recap-autodesk');
-      addRepos('AutodeskFusion360');
-      addRepos('AutodeskCAM');
-      addRepos('autodesk-acg');
-      addRepos('adsk-ui');
-      addRepos('ADN-DevTech');
+      //addRepos('DynamoDS');
+      //addRepos('spark3dp');
+      //addRepos('meshmixer');
+      //addRepos('developer-autodesk');
+      //addRepos('developer-recap-autodesk');
+      //addRepos('AutodeskFusion360');
+      //addRepos('AutodeskCAM');
+      //addRepos('autodesk-acg');
+      //addRepos('adsk-ui');
+      //addRepos('ADN-DevTech');
 
       // Get total number of public members for each organization passed in
 
@@ -195,16 +199,16 @@
  
       getNumMembers('Autodesk');
       getNumMembers('autodesk-cloud');
-      getNumMembers('DynamoDS');
-      getNumMembers('spark3dp');
-      getNumMembers('meshmixer');
-      getNumMembers('developer-autodesk');
-      getNumMembers('developer-recap-autodesk');
-      getNumMembers('AutodeskFusion360');
-      getNumMembers('AutodeskCAM');
-      getNumMembers('autodesk-acg');
-      getNumMembers('adsk-ui');
-      getNumMembers('ADN-DevTech');
+      //getNumMembers('DynamoDS');
+      //getNumMembers('spark3dp');
+      //getNumMembers('meshmixer');
+      //getNumMembers('developer-autodesk');
+      //getNumMembers('developer-recap-autodesk');
+      //getNumMembers('AutodeskFusion360');
+      //getNumMembers('AutodeskCAM');
+      //getNumMembers('autodesk-acg');
+      //getNumMembers('adsk-ui');
+      //getNumMembers('ADN-DevTech');
 
     })(jQuery);
     </script>
