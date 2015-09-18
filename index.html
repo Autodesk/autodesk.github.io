@@ -144,7 +144,7 @@
         //          + "&page="+page;
 
 	$.ajax({
-    	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
+    	    url	         : 'https://api.github.com/orgs/' + org + '/repos?callback=foo',
     	    cache        : true,
     	    //jsonpCallback: 'processRepo',
     	    dataType     : 'jsonp',
@@ -152,7 +152,7 @@
 	    success	 : function(data){
                              console.log('callback success');
                              console.log(data);
-			   }
+            		   }
         });
 
         console.log("Initiated AJAX call");
