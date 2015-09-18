@@ -77,26 +77,6 @@
 
       var repos = [];
 
-      function addRepos(org, page) {
-        page = page || 1;
-
-        //var uri = "https://api.github.com/orgs/"
-        //		  + org
-        //          + "/repos?callback=?"
-        //          + "&per_page=100"
-        //          + "&page="+page;
-
-	$.ajax({
-    	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
-    	    cache        : true,
-    	    jsonpCallback: 'processRepo',
-	    jsonp	 : 'callback',
-    	    dataType     : 'jsonp',
-    	    data         : { per_page:100, page:page }
-        });
-
-       console.log("Initiated AJAX call");
-      }
 
       function processRepo(result) {
 
@@ -152,6 +132,27 @@
           });
         }
 */
+      }
+
+      function addRepos(org, page) {
+        page = page || 1;
+
+        //var uri = "https://api.github.com/orgs/"
+        //		  + org
+        //          + "/repos?callback=?"
+        //          + "&per_page=100"
+        //          + "&page="+page;
+
+	$.ajax({
+    	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
+    	    cache        : true,
+    	    jsonpCallback: 'processRepo',
+	    jsonp	 : 'callback',
+    	    dataType     : 'jsonp',
+    	    data         : { per_page:100, page:page }
+        });
+
+       console.log("Initiated AJAX call");
       }
 
       // Call this for each organization associated with Autodesk OSS
