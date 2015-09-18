@@ -144,9 +144,9 @@
         //          + "&page="+page;
 
 	$.ajax({
-    	    url	         : 'https://api.github.com/orgs/' + org + '/repos?callback=foo',
+    	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
-    	    //jsonpCallback: 'processRepo',
+    	    jsonpCallback: 'processRepo',
     	    dataType     : 'jsonp',
     	    data         : { per_page:100, page:page },
 	    success	 : function(data){
