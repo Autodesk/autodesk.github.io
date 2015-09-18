@@ -78,7 +78,8 @@
       function addRepos(org, repos, page) {
         repos = repos || [];
         page = page || 1;
-        var $ = jQuery.noConflict();
+
+        function processRepo();
 
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
