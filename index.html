@@ -147,10 +147,12 @@
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
     	    jsonpCallback: 'processRepo',
-	    success	 : 'processRepo',
     	    dataType     : 'jsonp',
     	    data         : { per_page:100, page:page }
-        });
+	    success	 : function(data){
+                             console.log('callback success');
+                             console.log(data);
+                           });
 
        console.log("Initiated AJAX call");
       }
