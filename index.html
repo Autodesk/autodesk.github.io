@@ -79,8 +79,6 @@
         repos = repos || [];
         page = page || 1;
 
-        function processRepo(){};
-
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
@@ -88,6 +86,8 @@
     	    dataType     : 'jsonp',
     	    data         : { per_page:100, page:page },
 	    success	 : function(result){
+                             function processRepo(){};
+
 			     if (result.data && result.data.length > 0) {
           		       repos = repos.concat(result.data);
                                addRepos(org, repos, page + 1);
