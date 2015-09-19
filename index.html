@@ -90,7 +90,7 @@
         page = page || 1;
 
 	$.ajax({
-    	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
+    	    url	         : 'https://api.github.com/orgs/' + org + '/repos?callback=?',
     	    cache        : true,
     	    //jsonpCallback: 'processRepo',
     	    dataType     : 'json',
