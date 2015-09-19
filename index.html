@@ -90,10 +90,10 @@
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
-    	    jsonpCallback: 'processRepo',
+    	    //jsonpCallback: 'processRepo',
     	    dataType     : 'jsonp',
     	    data         : { per_page:100, page:page },
-	    success	 : function(result){
+	    jsonpCallback: function(result){
 			     if (result.data && result.data.length > 0) {
           		       repos = repos.concat(result.data);
                                addRepos(org, repos, page + 1);
