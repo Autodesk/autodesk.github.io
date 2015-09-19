@@ -29,7 +29,10 @@
     <script type="text/javascript" src="assets/strftime.js"></script>
     <script type="text/javascript">
 
-    function processRepo(result) {}
+    function processRepo(result) {
+      console.log('inside ProcessRepo callback');
+      console.log(result.data);
+    }
 
     (function ($, undefined) {
 
