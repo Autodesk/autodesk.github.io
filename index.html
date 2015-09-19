@@ -29,13 +29,11 @@
     <script type="text/javascript" src="assets/strftime.js"></script>
     <script type="text/javascript">
 
-/*
     function processRepo(result) {
       console.log('inside ProcessRepo callback');
       console.log(result.data);
     }
 
-*/
 
     (function ($, undefined) {
 
@@ -93,7 +91,7 @@
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
     	    jsonpCallback: 'processRepo',
-    	    dataType     : 'json',
+    	    dataType     : 'jsonp',
     	    data         : { per_page:100, page:page },
 	    success	 : function(result){
 			     if (result.data && result.data.length > 0) {
