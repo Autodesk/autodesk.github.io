@@ -30,8 +30,8 @@
     <script type="text/javascript">
 
     function processRepo(result) {
-      console.log('inside ProcessRepo callback');
-      console.log(result.data);
+      //console.log('inside ProcessRepo callback');
+      //console.log(result.data);
     }
 
 
@@ -94,6 +94,9 @@
     	    dataType     : 'jsonp',
     	    data         : { per_page:100, page:page },
 	    success	 : function(result){
+                             console.log('inside AJAX success callback');
+                             console.log(result.data);
+
 			     if (result.data && result.data.length > 0) {
           		       repos = repos.concat(result.data);
                                addRepos(org, repos, page + 1);
