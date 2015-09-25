@@ -87,6 +87,9 @@
         repos = repos || [];
         page = page || 1;
 
+        console.log("Org = " + org);
+        console.log("Page = " + page);
+
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
@@ -153,7 +156,7 @@
       // Call this for each organization associated with Autodesk OSS
 
       addRepos('Autodesk');
-      //addRepos('autodesk-cloud');
+      addRepos('autodesk-cloud');
       //addRepos('DynamoDS');
       //addRepos('spark3dp');
       //addRepos('meshmixer');
