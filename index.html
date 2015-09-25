@@ -87,9 +87,6 @@
         repos = repos || [];
         page = page || 1;
 
-        console.log("Org = " + org);
-        console.log("Page = " + page);
-
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
@@ -98,6 +95,8 @@
     	    data         : { per_page:100, page:page },
 	    success	 : function(result){
                              console.log('inside AJAX success callback');
+                             console.log("Org = " + org);
+                             console.log("Page = " + page);
                              console.log(result.data);
 
 			     if (result.data && result.data.length > 0) {
