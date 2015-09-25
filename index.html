@@ -92,8 +92,8 @@
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
-    	    //jsonpCallback: 'processRepo',
-    	    dataType     : 'json',
+    	    jsonpCallback: 'processRepo',
+    	    dataType     : 'jsonp',
 	    success	 : function(result){
                              console.log('inside AJAX success callback');
                              console.log("Org inside callback = " + org);
