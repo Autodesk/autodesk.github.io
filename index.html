@@ -83,9 +83,8 @@
         $item.appendTo("#repos");
       }
 
-      var repos = [];
-
       function addRepos(org) {
+        var repos = [];
 
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
