@@ -29,6 +29,10 @@
     <script type="text/javascript" src="assets/strftime.js"></script>
     <script type="text/javascript">
 
+    function repoUrl(repo) {
+      return repoUrls[repo.name] || repo.html_url;
+    }
+
     function addRepo(repo) {
       var $item = $("<li>").addClass("repo grid-1 " + (repo.language || '').toLowerCase());
       var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
