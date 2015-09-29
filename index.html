@@ -166,7 +166,7 @@
 
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
-    	    cache        : true,
+    	    cache        : false,
     	    jsonpCallback: 'processRepo',
     	    dataType     : 'jsonp',
 	    success	 : function(result){
