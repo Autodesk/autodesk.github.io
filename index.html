@@ -29,6 +29,7 @@
     <script type="text/javascript" src="assets/strftime.js"></script>
     <script type="text/javascript">
 
+/*
     // Put custom repo URL's in this object, keyed by repo name.
     var repoUrls = { }; 
 
@@ -51,6 +52,7 @@
       $link.append($("<p>").text(repoDescription(repo)));
       $item.appendTo("#repos");
     }
+*/
 
     // Dummy callback not needed - used to maintain consistent URL for caching purposes
 
@@ -60,6 +62,7 @@
       console.log('inside processRepo callback');
       console.log(result.data);
 
+/*
       if (result.data && result.data.length > 0) {
         repos = repos.concat(result.data);
 
@@ -103,6 +106,7 @@
       //   addRecentlyUpdatedRepo(repo);
       //  });
       }
+*/
 
     }
 
@@ -110,7 +114,6 @@
 
     (function ($, undefined) {
 
-/*
       // Put custom repo URL's in this object, keyed by repo name.
       var repoUrls = { }; 
 
@@ -155,7 +158,6 @@
         $link.append($("<p>").text(repoDescription(repo)));
         $item.appendTo("#repos");
       }
-*/
 
       function addRepos(org) {
         var repos = [];
@@ -168,7 +170,6 @@
     	    jsonpCallback: 'processRepo',
     	    //dataType     : 'jsonp',
     	    dataType     : 'jsonp'
-/*
 	    success	 : function(result){
                              console.log('inside AJAX success callback');
                              console.log("Org inside callback = " + org);
@@ -219,7 +220,6 @@
             		     }
                            }  
            
-*/
         });
 
       }
