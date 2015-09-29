@@ -29,8 +29,18 @@
     <script type="text/javascript" src="assets/strftime.js"></script>
     <script type="text/javascript">
 
+    // Put custom repo URL's in this object, keyed by repo name.
+    var repoUrls = { }; 
+
     function repoUrl(repo) {
       return repoUrls[repo.name] || repo.html_url;
+    }
+
+    // Put custom repo descriptions in this object, keyed by repo name.
+    var repoDescriptions = { };
+
+    function repoDescription(repo) {
+      return repoDescriptions[repo.name] || repo.description;
     }
 
     function addRepo(repo) {
@@ -100,6 +110,7 @@
 
     (function ($, undefined) {
 
+/*
       // Put custom repo URL's in this object, keyed by repo name.
       var repoUrls = { }; 
 
@@ -136,7 +147,6 @@
         $item.appendTo("#recently-updated-repos");
       }
 
-/*
       function addRepo(repo) {
         var $item = $("<li>").addClass("repo grid-1 " + (repo.language || '').toLowerCase());
         var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
