@@ -164,7 +164,7 @@
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
 	    ifModified   : true,
-    	    dataType     : 'json',
+    	    dataType     : 'json'
 /*
 	    success      : function(result){
                              console.log('inside AJAX done callback');
@@ -239,16 +239,28 @@
 
       // Get total number of public members for each organization passed in
 
-      function getNumMembers(org, numMembers, page) {
-        var page = page || 1;
-        var numMembers = numMembers || 0;
-        var membersUri = "https://api.github.com/orgs/"
-	  		 + org
-	  		 + "/members?callback=?"
-          		 + "&per_page=100"
-          		 + "&page="+page;
+      function getNumMembers(org) {
+        $.ajax({
+            url          : 'https://api.github.com/orgs/' + org + '/members',
+            cache        : true,
+            ifModified   : true,
+            dataType     : 'json'
+        }).done(function(data, textStatus, jqXHR) {
+                  var numMembers = 0;
 
-        $.getJSON(membersUri, function (result) {
+	          console.log("URL:" + this.url);
+                  console.log("jqXHR: textStatus: " + textStatus);
+		  console.log("jqXHR.status = " + jqXHR.status);
+		  console.log(data);
+
+		  if (data && data.length > 0) {
+                    $("#num-members").text(Number(($("#num-members").text())) + data.length);
+                  }
+                });
+
+/*
+
+        $.getJSON(membersUri, function (result) 
           if (result.data && result.data.length > 0) {
             numMembers += result.data.length;
             getNumMembers(org, numMembers, page+1);
@@ -258,6 +270,7 @@
             });
 	  }
         });
+*/
       }
 
       $(document).ready(function(){
@@ -266,7 +279,7 @@
 
         addRepos('Autodesk');
         addRepos('autodesk-cloud');
-        addRepos('DynamoDS');
+        //addRepos('DynamoDS');
         //addRepos('spark3dp');
         //addRepos('meshmixer');
         //addRepos('developer-autodesk');
@@ -279,8 +292,8 @@
 
         // Call this for each organization associated with Autodesk OSS
  
-        //getNumMembers('Autodesk');
-        //getNumMembers('autodesk-cloud');
+        getNumMembers('Autodesk');
+        getNumMembers('autodesk-cloud');
         //getNumMembers('DynamoDS');
         //getNumMembers('spark3dp');
         //getNumMembers('meshmixer');
