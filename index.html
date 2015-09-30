@@ -29,11 +29,10 @@
     <script type="text/javascript" src="assets/strftime.js"></script>
     <script type="text/javascript">
 
-    var repos = [];
-
     // Main JSON function
 
     (function ($, undefined) {
+      var repos = [];
       var repoUrls = { }; 
       var repoDescriptions = { };
 
@@ -84,6 +83,7 @@
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
+	    async	 : false,
 	    ifModified   : true,
     	    dataType     : 'json'
         }).done(function(data, textStatus, jqXHR) {
