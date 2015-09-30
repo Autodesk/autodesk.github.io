@@ -163,11 +163,12 @@
         //var repos = [];
 
 	$.ajax({
-    	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
+    	    //url	         : 'https://api.github.com/orgs/' + org + '/repos',
+    	    url	         : 'https://api.github.com/orgs/' + org + '/repos?callback=?',
     	    cache        : true,
-    	    jsonpCallback: 'processRepo',
+    	    //jsonpCallback: 'processRepo',
 	    ifModified   : true,
-    	    dataType     : 'jsonp',
+    	    //dataType     : 'jsonp',
 /*
 	    success      : function(result){
                              console.log('inside AJAX done callback');
