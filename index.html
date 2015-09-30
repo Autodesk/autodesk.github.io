@@ -220,7 +220,8 @@
                            }, 
             error        : function(jqXHR, textStatus, errorThrown){
                              console.log("ERROR - " + textStatus, errorThrown);
-		             console.log("jqXHR object = " + jqXHR);
+		             console.log("jqXHR.status = " + jqXHR.status);
+		             console.log("jqXHR.responseText = " + jqXHR.responseText);
 			  } 
         });
 
