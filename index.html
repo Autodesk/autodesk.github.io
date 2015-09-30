@@ -168,9 +168,11 @@
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
     	    jsonpCallback: 'processRepo',
-    	    dataType     : 'jsonp',
-	    success	 : function(result){
-                             console.log('inside AJAX success callback');
+    	    //dataType     : 'jsonp',
+    	    dataType     : 'jsonp'
+	    //success	 : function(result){
+        }).done(function(result){ 
+                             console.log('inside AJAX done callback');
                              console.log("Org inside callback = " + org);
                              console.log(result.data);
 
@@ -217,9 +219,9 @@
                                  addRecentlyUpdatedRepo(repo);
                                });
             		     }
-                           }  
+          //                 }  
            
-        });
+       });
 
       }
 
