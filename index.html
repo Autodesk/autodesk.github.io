@@ -168,6 +168,7 @@
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
     	    jsonpCallback: 'processRepo',
+            contentType  : 'application/json',
     	    dataType     : 'jsonp',
 	    success      : function(result){
                              console.log('inside AJAX done callback');
