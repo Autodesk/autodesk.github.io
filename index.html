@@ -160,7 +160,7 @@
       }
 
       function addRepos(org) {
-        var repos = [];
+        //var repos = [];
 
 	$.ajax({
     	    //url	         : 'https://api.github.com/orgs/' + org + '/repos',
@@ -227,10 +227,20 @@
 		             console.log("jqXHR.responseText = " + jqXHR.responseText);
 		             console.log("jqXHR.getAllResponseHeaders = " + jqXHR.getAllResponseHeaders);
 			  } 
-        }).done (function(data, textStatus, jqXHR) {
+        }).done (function(result, textStatus, jqXHR) {
+                             var repos = [];
+
 			     console.log("URL:" + this.url);
                              console.log("jqXHR: textStatus: " + textStatus);
 		             console.log("jqXHR.status = " + jqXHR.status);
+
+			     if (result.data && result.data.length > 0) {
+          		       repos = repos.concat(result.data);
+
+                               $.each(repos, function (i, repo) {
+                                 addRepo(repo);
+                               });
+                             }
 			   });
 
       }
