@@ -218,8 +218,8 @@
                                });
             		     }
                            }, 
-            error        : function(error){
-                           console.log('error; ' + eval(error));
+            error        : function(jqXHR, textStatus, errorThrown){
+                             console.log("ERROR - " + textStatus, errorThrown);
 			  } 
         });
 
