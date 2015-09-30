@@ -227,20 +227,16 @@
 		             console.log("jqXHR.responseText = " + jqXHR.responseText);
 		             console.log("jqXHR.getAllResponseHeaders = " + jqXHR.getAllResponseHeaders);
 			  } 
-        }).done(function(result, textStatus, jqXHR) {
+        }).done(function(data, textStatus, jqXHR) {
                              var repos = [];
-			     var obj;
 
 			     console.log("URL:" + this.url);
                              console.log("jqXHR: textStatus: " + textStatus);
 		             console.log("jqXHR.status = " + jqXHR.status);
-			     console.log(result);
+			     console.log(data);
 
-                             //obj = JSON && JSON.parse(result) || $.parseJSON(result);
-                             obj = JSON.parse(result);
-
-			     if (obj.data && obj.data.length > 0) {
-          		       repos = repos.concat(obj.data);
+			     if (data && data.length > 0) {
+          		       repos = repos.concat(data);
 
                                $.each(repos, function (i, repo) {
                                  addRepo(repo);
