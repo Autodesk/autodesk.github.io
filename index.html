@@ -162,13 +162,10 @@
       function addRepos(org) {
         var repos = [];
 
-        //console.log("Org addRepos = " + org);
-
 	$.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
     	    jsonpCallback: 'processRepo',
-            contentType  : 'application/json',
     	    dataType     : 'jsonp',
 	    success      : function(result){
                              console.log('inside AJAX done callback');
@@ -259,16 +256,16 @@
 
         addRepos('Autodesk');
         addRepos('autodesk-cloud');
-        //addRepos('DynamoDS');
-        //addRepos('spark3dp');
-        //addRepos('meshmixer');
-        //addRepos('developer-autodesk');
-        //addRepos('developer-recap-autodesk');
-        //addRepos('AutodeskFusion360');
-        //addRepos('AutodeskCAM');
-        //addRepos('autodesk-acg');
-        //addRepos('adsk-ui');
-        //addRepos('ADN-DevTech');
+        addRepos('DynamoDS');
+        addRepos('spark3dp');
+        addRepos('meshmixer');
+        addRepos('developer-autodesk');
+        addRepos('developer-recap-autodesk');
+        addRepos('AutodeskFusion360');
+        addRepos('AutodeskCAM');
+        addRepos('autodesk-acg');
+        addRepos('adsk-ui');
+        addRepos('ADN-DevTech');
 
         // Call this for each organization associated with Autodesk OSS
  
