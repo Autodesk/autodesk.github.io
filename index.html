@@ -163,12 +163,12 @@
         //var repos = [];
 
 	$.ajax({
-    	    //url	         : 'https://api.github.com/orgs/' + org + '/repos',
-    	    url	         : 'https://api.github.com/orgs/' + org + '/repos?callback=?',
+    	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
+    	    //url	         : 'https://api.github.com/orgs/' + org + '/repos?callback=?',
     	    cache        : true,
     	    //jsonpCallback: 'processRepo',
 	    ifModified   : true,
-    	    dataType     : 'jsonp',
+    	    dataType     : 'json',
 /*
 	    success      : function(result){
                              console.log('inside AJAX done callback');
@@ -227,12 +227,13 @@
 		             console.log("jqXHR.responseText = " + jqXHR.responseText);
 		             console.log("jqXHR.getAllResponseHeaders = " + jqXHR.getAllResponseHeaders);
 			  } 
-        }).done (function(result, textStatus, jqXHR) {
+        }).always(function(result, textStatus, jqXHR) {
                              var repos = [];
 
 			     console.log("URL:" + this.url);
                              console.log("jqXHR: textStatus: " + textStatus);
 		             console.log("jqXHR.status = " + jqXHR.status);
+			     console.log(result.data);
 
 			     if (result.data && result.data.length > 0) {
           		       repos = repos.concat(result.data);
