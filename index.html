@@ -95,8 +95,6 @@
 		  if (data && data.length > 0) {
           	    repos = repos.concat(data);
 
-                    $("#num-repos").text(Number(($("#num-repos").text())) + repos.length);
-
                     // Convert pushed_at to Date.
                     $.each(repos, function (i, repo) {
                       repo.pushed_at = new Date(repo.pushed_at);
@@ -152,6 +150,8 @@
           addRepo(repo);
         });
 
+        $("#num-repos").text(repos.length);
+
         // Sort repos by most-recently pushed to & add top 3 to recently updated list
 
         repos.sort(function (a, b) {
@@ -169,11 +169,9 @@
 
         // Loop through all organizations associated with Autodesk OSS
 
-        var orgLength = orgs.length;
-
-        for (var i = 0; i < orgLength; i++) {
-          getRepos(orgs[i]);
+        for (var i = 0; i < orgs.length; i++) {
           getNumMembers(orgs[i]);
+          getRepos(orgs[i]);
         }
 
         // Do the repo sort and recently updated calculations
@@ -189,6 +187,7 @@
       <div id="main" class="grid-1">
         <div id="logo"><h1>Autodesk Open Source</h1></div>
         <h1>Autodesk uses and contributes to open source software through various projects</h1>
+        <h3>Repos sorted according to highest number of followers</h3>
         <p class="email"><a href="mailto:opensource@autodesk.com">opensource@autodesk.com</a></p>
       </div>
 
