@@ -165,8 +165,6 @@
             ifModified   : true,
             dataType     : 'json'
         }).done(function(data, textStatus, jqXHR) {
-                  var numMembers = 0;
-
 	          console.log("URL:" + this.url);
                   console.log("jqXHR: textStatus: " + textStatus);
 		  console.log("jqXHR.status = " + jqXHR.status);
@@ -187,7 +185,7 @@
         addRepos('autodesk-cloud');
         addRepos('DynamoDS');
         addRepos('spark3dp');
-        addRepos('meshmixer');
+        //addRepos('meshmixer');
         addRepos('developer-autodesk');
         addRepos('developer-recap-autodesk');
         addRepos('AutodeskFusion360');
@@ -202,7 +200,7 @@
         getNumMembers('autodesk-cloud');
         getNumMembers('DynamoDS');
         getNumMembers('spark3dp');
-        getNumMembers('meshmixer');
+        //getNumMembers('meshmixer');
         getNumMembers('developer-autodesk');
         getNumMembers('developer-recap-autodesk');
         getNumMembers('AutodeskFusion360');
