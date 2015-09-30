@@ -236,8 +236,8 @@
 		             console.log("jqXHR.status = " + jqXHR.status);
 			     console.log(result);
 
-/*
-                             obj = JSON && JSON.parse(result) || $.parseJSON(result);
+                             //obj = JSON && JSON.parse(result) || $.parseJSON(result);
+                             obj = JSON.parse(result);
 
 			     if (obj.data && obj.data.length > 0) {
           		       repos = repos.concat(obj.data);
@@ -246,7 +246,6 @@
                                  addRepo(repo);
                                });
                              }
-*/
 	          });
 
       }
