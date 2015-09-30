@@ -169,11 +169,6 @@
     	    //jsonpCallback: 'processRepo',
 	    ifModified   : true,
     	    dataType     : 'json',
-	    done	 : function(data, textStatus, jqXHR) {
-			     console.log("URL:" + this.url);
-                             console.log("jqXHR: textStatus: " + textStatus);
-		             console.log("jqXHR.status = " + jqXHR.status);
-			   },
 /*
 	    success      : function(result){
                              console.log('inside AJAX done callback');
@@ -232,7 +227,11 @@
 		             console.log("jqXHR.responseText = " + jqXHR.responseText);
 		             console.log("jqXHR.getAllResponseHeaders = " + jqXHR.getAllResponseHeaders);
 			  } 
-        });
+        }).done (function(data, textStatus, jqXHR) {
+			     console.log("URL:" + this.url);
+                             console.log("jqXHR: textStatus: " + textStatus);
+		             console.log("jqXHR.status = " + jqXHR.status);
+			   });,
 
       }
 
