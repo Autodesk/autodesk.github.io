@@ -168,7 +168,9 @@
 
         // Loop through all organizations associated with Autodesk OSS
 
-        for (var i = 0; i < orgs.length; i++) {
+        var orgLength = orgs.length;
+
+        for (var i = 0; i < orgLength; i++) {
           getRepos(orgs[i]);
           getNumMembers(orgs[i]);
         }
