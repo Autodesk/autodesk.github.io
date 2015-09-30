@@ -32,16 +32,16 @@
     // Main JSON function
 
     (function ($, undefined) {
-
-      // Put custom repo URL's in this object, keyed by repo name.
       var repoUrls = { }; 
+      var repoDescriptions = { };
+
+      // Add new Autodesk organizations here - beware of 60 API call/hour limit
+
+      var orgs = ["Autodesk", "autodesk-cloud", "DynamoDS", "spark3dp", "developer-autodesk", "developer-recap-autodesk", "AutodeskFusion360", "AutodeskCAM", "autodesk-acg", "adsk-ui", "ADN-DevTech"];
 
       function repoUrl(repo) {
         return repoUrls[repo.name] || repo.html_url;
       }
-
-      // Put custom repo descriptions in this object, keyed by repo name.
-      var repoDescriptions = { };
 
       function repoDescription(repo) {
         return repoDescriptions[repo.name] || repo.description;
@@ -179,13 +179,19 @@
 
       $(document).ready(function(){
 
-        // Call this for each organization associated with Autodesk OSS
+        // Loop through all organizations associated with Autodesk OSS
 
+        for (var i = 0; i < orgs.length; i++) {
+          addRepos(orgs[i]);
+          getNumMembers(orgs[i]);
+        }
+
+/*
         addRepos('Autodesk');
         addRepos('autodesk-cloud');
         addRepos('DynamoDS');
         addRepos('spark3dp');
-        //addRepos('meshmixer');
+        addRepos('meshmixer');
         addRepos('developer-autodesk');
         addRepos('developer-recap-autodesk');
         addRepos('AutodeskFusion360');
@@ -194,13 +200,11 @@
         addRepos('adsk-ui');
         addRepos('ADN-DevTech');
 
-        // Call this for each organization associated with Autodesk OSS
- 
         getNumMembers('Autodesk');
         getNumMembers('autodesk-cloud');
         getNumMembers('DynamoDS');
         getNumMembers('spark3dp');
-        //getNumMembers('meshmixer');
+        getNumMembers('meshmixer');
         getNumMembers('developer-autodesk');
         getNumMembers('developer-recap-autodesk');
         getNumMembers('AutodeskFusion360');
@@ -208,6 +212,7 @@
         getNumMembers('autodesk-acg');
         getNumMembers('adsk-ui');
         getNumMembers('ADN-DevTech');
+*/
 
       });
 
@@ -218,8 +223,8 @@
     <div id="wrapper" class="grid clearfix">
       <div id="main" class="grid-1">
         <div id="logo"><h1>Autodesk Open Source</h1></div>
-        <h1>Autodesk uses and contributes to open source software through various projects.</h1>
-	<p>This page <strong>UNDER CONSTRUCTION</strong></p>
+        <h1>Autodesk uses and contributes to open source software through various projects</h1>
+        <p class="email"><a href="mailto:opensource@autodesk.com">opensource@autodesk.com</a></p>
       </div>
 
       <div class="grid grid-3">
@@ -230,7 +235,6 @@
             <br>
             <span id="num-members"><img src="assets/spinner.gif" /></span> public members
           </p>
-          <p class="email"><a href="mailto:opensource@autodesk.com">opensource@autodesk.com</a></p>
         </div>
 
         <div id="recently-updated" class="grid-2 omega header">
