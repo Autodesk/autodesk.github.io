@@ -33,6 +33,7 @@
 
     (function ($, undefined) {
       var repos = [];
+      var promises = [];
       var repoUrls = { }; 
       var repoDescriptions = { };
 
@@ -80,10 +81,10 @@
       }
 
       function getRepos(org) {
-	$.ajax({
+	promises.push($.ajax({
     	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
     	    cache        : true,
-	    async	 : false,
+	    //async	 : false,
 	    ifModified   : true,
     	    dataType     : 'json'
         }).done(function(data, textStatus, jqXHR) {
@@ -112,6 +113,7 @@
                     });
                   }
 	        });
+         );
       }
 
       // Get total number of public members for each organization passed in
@@ -174,9 +176,11 @@
           getRepos(orgs[i]);
         }
 
-        // Do the repo sort and recently updated calculations
+        // Do the repo sort and recently updated calculations after all callbacks return
 
-        doRepoStats();
+        $.when.apply($, promises).then(function() {
+          doRepoStats();
+        });
       });
 
     })(jQuery);
