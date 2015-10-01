@@ -80,40 +80,42 @@
         $item.appendTo("#repos");
       }
 
+      // Get repo data for each organization passed in 
+
       function getRepos(org) {
 	promises.push($.ajax({
-    	    url	         : 'https://api.github.com/orgs/' + org + '/repos',
-    	    cache        : true,
-	    //async	 : false,
-	    ifModified   : true,
-    	    dataType     : 'json'
-        }).done(function(data, textStatus, jqXHR) {
-	          //console.log("URL:" + this.url);
-                  //console.log("jqXHR: textStatus: " + textStatus);
-		  //console.log("jqXHR.status = " + jqXHR.status);
-		  //console.log(data);
+    	                url	     : 'https://api.github.com/orgs/' + org + '/repos',
+    	                cache        : true,
+	                ifModified   : true,
+    	                dataType     : 'json'
+                      }).done(function(data, textStatus, jqXHR) {
+	                        //console.log("URL:" + this.url);
+                                //console.log("jqXHR: textStatus: " + textStatus);
+		                //console.log("jqXHR.status = " + jqXHR.status);
+		                //console.log(data);
 
-		  if (data && data.length > 0) {
-          	    repos = repos.concat(data);
+		                if (data && data.length > 0) {
+          	                  repos = repos.concat(data);
 
-                    // Convert pushed_at to Date.
-                    $.each(repos, function (i, repo) {
-                      repo.pushed_at = new Date(repo.pushed_at);
+                                  // Convert pushed_at to Date.
 
-                      var weekHalfLife  = 1.146 * Math.pow(10, -9);
+                                  $.each(repos, function (i, repo) {
+                                    repo.pushed_at = new Date(repo.pushed_at);
 
-                      var pushDelta    = (new Date) - Date.parse(repo.pushed_at);
-                      var createdDelta = (new Date) - Date.parse(repo.created_at);
+                                    var weekHalfLife  = 1.146 * Math.pow(10, -9);
 
-                      var weightForPush = 1;
-                      var weightForWatchers = 1.314 * Math.pow(10, 7);
+                                    var pushDelta    = (new Date) - Date.parse(repo.pushed_at);
+                                    var createdDelta = (new Date) - Date.parse(repo.created_at);
 
-                      repo.hotness = weightForPush * Math.pow(Math.E, -1 * weekHalfLife * pushDelta);
-                      repo.hotness += weightForWatchers * repo.watchers / createdDelta;
-                    });
-                  }
-	        })
-         );
+                                    var weightForPush = 1;
+                                    var weightForWatchers = 1.314 * Math.pow(10, 7);
+
+                                    repo.hotness = weightForPush * Math.pow(Math.E, -1 * weekHalfLife * pushDelta);
+                                    repo.hotness += weightForWatchers * repo.watchers / createdDelta;
+                                  });
+                                }
+	              })
+        );
       }
 
       // Get total number of public members for each organization passed in
@@ -172,8 +174,8 @@
         // Loop through all organizations associated with Autodesk OSS
 
         for (var i = 0; i < orgs.length; i++) {
-          getNumMembers(orgs[i]);
           getRepos(orgs[i]);
+          getNumMembers(orgs[i]);
         }
 
         // Do the repo sort and recently updated calculations after all callbacks return
