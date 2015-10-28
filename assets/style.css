@@ -241,10 +241,14 @@ li.repo h3 {
   border-right-color: #e4e53f;
 }
 
-.repo.visual\ basic:after {
+.repo.visual\20 basic:after {
   border-right-color: #df34cf;
 }
 
 .repo.asp:after {
   border-right-color: #9787dd;
+}
+
+.repo.css:after {
+  border-right-color: #0ef2d5;
 }
