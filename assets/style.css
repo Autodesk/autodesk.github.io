@@ -224,3 +224,7 @@ li.repo h3 {
 .repo.c:after {
   border-right-color: #00ffff;
 }
+
+.repo.c#:after {
+  border-right-color: #1b09df;
+}
