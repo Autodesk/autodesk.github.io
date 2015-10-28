@@ -212,3 +212,7 @@ li.repo h3 {
 .repo.python:after {
   border-right-color: #6aad2d;
 }
+
+.repo.html:after {
+  border-right-color: ##ff8000;
+}
