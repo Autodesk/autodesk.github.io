@@ -216,3 +216,7 @@ li.repo h3 {
 .repo.html:after {
   border-right-color: #ff8000;
 }
+
+.repo.c++:after {
+  border-right-color: #800080;
+}
