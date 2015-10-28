@@ -66,10 +66,9 @@ a:hover {
 }
 
 #logo {
-  width:  107px;
+  //width:  107px;
   height: 85px;
-  margin-left: 40px;
-  text-indent: -99999px;
+  margin-top: 20px;
 }
 
 #header {
