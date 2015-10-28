@@ -232,3 +232,19 @@ li.repo h3 {
 .repo.c\#:after {
   border-right-color: #850a29;
 }
+
+.repo.c\+\+:after {
+  border-right-color: #0e5633;
+}
+
+.repo.shell:after {
+  border-right-color: #e4e53f;
+}
+
+.repo.visual\ basic:after {
+  border-right-color: #df34cf;
+}
+
+.repo.asp:after {
+  border-right-color: #9787dd;
+}
