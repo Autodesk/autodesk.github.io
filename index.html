@@ -76,6 +76,7 @@
         var $link = $("<a>").attr("href", repoUrl(repo)).appendTo($item);
         $link.append($("<h2>").text(repo.name));
         $link.append($("<h3>").text(repo.language));
+	console.log("Repo Lang = " + repo.language);
         $link.append($("<p>").text(repoDescription(repo)));
         $item.appendTo("#repos");
       }
