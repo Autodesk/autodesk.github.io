@@ -226,5 +226,9 @@ li.repo h3 {
 }
 
 .repo.objective-c:after {
-  border-right-color: #1b09df;
+  border-right-color: #2f22c1;
+}
+
+.repo.c\#:after {
+  border-right-color: #850a29;
 }
