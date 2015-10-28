@@ -71,7 +71,14 @@ a:hover {
   margin-left: 40px;
   background: url("Autodesk-logo-bug.png");
   text-indent: -99999px;
+}
 
+#header {
+  width:  940px;
+  height: 130px;
+//  margin-left: 40px;
+  background: url("autodesk.github.io.header.jpg");
+//  text-indent: -99999px;
 }
 
 #logo h1 {
