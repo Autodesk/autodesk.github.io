@@ -241,7 +241,7 @@ li.repo h3 {
   border-right-color: #e4e53f;
 }
 
-.repo.visual\000020basic:after {
+.repo.'visual basic':after {
   border-right-color: #df34cf;
 }
 
